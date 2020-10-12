@@ -11,6 +11,8 @@ def main():
     if len(sys.argv) != 2:
         sys.exit("Usage: python pagerank.py corpus")
     corpus = crawl(sys.argv[1])
+    print(corpus)
+    sys.exit()
     ranks = sample_pagerank(corpus, DAMPING, SAMPLES)
     print(f"PageRank Results from Sampling (n = {SAMPLES})")
     for page in sorted(ranks):
@@ -35,7 +37,9 @@ def crawl(directory):
             continue
         with open(os.path.join(directory, filename)) as f:
             contents = f.read()
+            print(contents)
             links = re.findall(r"<a\s+(?:[^>]*?)href=\"([^\"]*)\"", contents)
+            print(links)
             pages[filename] = set(links) - {filename}
 
     # Only include links to other pages in the corpus
