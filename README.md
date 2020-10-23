@@ -28,7 +28,7 @@ By sampling states randomly from the Markov Chain, we can get an estimate for ea
 
 However, this definition of PageRank proves slightly problematic, if we consider a network of pages like the below.
 
-<img src="resources/network_disconnected.png" width="400">
+<img src="resources/network_disconnected.png" width="300">
 
 Imagine we randomly started by sampling Page 5. We’d then have no choice but to go to Page 6, and then no choice but to go to Page 5 after that, and then Page 6 again, and so forth. We’d end up with an estimate of 0.5 for the PageRank for Pages 5 and 6, and an estimate of 0 for the PageRank of all the remaining pages, since we spent all our time on Pages 5 and 6 and never visited any of the other pages.
 
