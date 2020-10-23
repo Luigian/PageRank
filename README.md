@@ -68,7 +68,7 @@ The `main` function then calls the `sample_pagerank` function, whose purpose is 
 
 The `main` function also calls the `iterate_pagerank` function, which will also calculate PageRank for each page, but using the iterative formula method instead of by sampling. The return value is expected to be in the same format, and we would hope that the output of these two functions should be similar when given the same corpus!
 
-### 1
+### Choosing randomly among a page's links, or from any of the pages in the corpus
 
 The `transition_model` should return a dictionary representing the probability distribution over which page a random surfer would visit next, given a corpus of pages, a current page, and a damping factor.
 
@@ -90,7 +90,7 @@ For example, if the corpus were `{"1.html": {"2.html", "3.html"}, "2.html": {"3.
 
 If page has no outgoing links, then `transition_model` should return a probability distribution that chooses randomly among all pages with equal probability. (In other words, if a page has no links, we can pretend it has links to all pages in the corpus, including itself.)
 
-### 2
+### Calculating PageRank by sampling pages from a Markov Chain random surfer
 
 The `sample_pagerank` function should accept a corpus of web pages, a damping factor, and a number of samples, and return an estimated PageRank for each page.
 
@@ -116,7 +116,7 @@ You may find the functions in Python’s random module helpful for making decisi
 
 You may assume that `n` will be at least 1.
 
-### 3
+### Calculating rank values by iteratively applying the PageRank formula
 
 The `iterate_pagerank` function should accept a corpus of web pages and a damping factor, calculate PageRanks based on the iteration formula described above, and return each page’s PageRank accurate to within 0.001.
 
@@ -154,6 +154,6 @@ You should not modify anything else in `pagerank.py` other than the three functi
 
 A project from the course [CS50's Introduction to Artificial Intelligence with Python 2020][cs50 ai] from HarvardX.
 
-[cs50 lecture]: https://www.youtube.com/watch?v=uQmYZTTqDC0
+[cs50 lecture]: https://youtu.be/uQmYZTTqDC0?t=5553
 [linkedin]: https://www.linkedin.com/in/luis-sanchez-13bb3b189/
 [cs50 ai]: https://cs50.harvard.edu/ai/2020/
