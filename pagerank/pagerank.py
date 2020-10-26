@@ -64,11 +64,16 @@ def transition_model(corpus, page, damping_factor):
     """
     trans = dict()
     
-    for filename in corpus:
-        trans[filename] = 0.0
-        if filename in corpus[page]:
-            trans[filename] = damping_factor / len(corpus[page])
-        trans[filename] += round((1 - damping_factor) / len(corpus), 4)
+    # A page that has no links is interpreted as having links for every page including itself
+    if len(corpus[page]) == 0:
+        for filename in corpus:
+            trans[filename] = 1 / len(corpus)
+    else:
+        for filename in corpus:
+            trans[filename] = round((1 - damping_factor) / len(corpus), 4)
+            if filename in corpus[page]:
+                trans[filename] += damping_factor / len(corpus[page])
+
     return trans
 
 
